@@ -20,7 +20,7 @@ public MedicoRepositoryImpl(ConnectionDb connection) {
 }
     @Override
     public void crearMedico(Medico medico) {
-        String sql = "INSERT INTO medicos (nombre, especialidad_id, horario_inicio, horario_fin) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO medico (nombre, especialidad_id, horario_inicio, horario_fin) VALUES (?, ?, ?, ?)";
         try (Connection conexion = connection.getConexion();
         PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, medico.getNombre());
@@ -30,13 +30,13 @@ public MedicoRepositoryImpl(ConnectionDb connection) {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("Error al crear el médico", e);
+            throw new RuntimeException("Error al registrar el médico", e);
         }
     }
 
     @Override
     public Medico obtenerMedicoPorId(int id) {
-        String sql = "SELECT * FROM medicos WHERE id = ?";
+        String sql = "SELECT * FROM medico WHERE id = ?";
         try (Connection conexion = connection.getConexion();
         PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -57,7 +57,7 @@ public MedicoRepositoryImpl(ConnectionDb connection) {
 
     @Override
     public void actualizarMedico(Medico medico) {
-        String sql = "UPDATE medicos SET nombre = ?, especialidad_id = ?, horario_inicio = ?, horario_fin = ? WHERE id = ?";
+        String sql = "UPDATE medico SET nombre = ?, especialidad_id = ?, horario_inicio = ?, horario_fin = ? WHERE id = ?";
         try (Connection conexion = connection.getConexion();
         PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setString(1, medico.getNombre());
@@ -74,7 +74,7 @@ public MedicoRepositoryImpl(ConnectionDb connection) {
 
     @Override
     public void eliminarMedico(int id) {
-        String sql = "DELETE FROM medicos WHERE id = ?";
+        String sql = "DELETE FROM medico WHERE id = ?";
         try (Connection conexion = connection.getConexion();
         PreparedStatement stmt = conexion.prepareStatement(sql)) {
             stmt.setInt(1, id);

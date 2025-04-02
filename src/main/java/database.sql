@@ -37,3 +37,6 @@ CREATE TABLE Cita (
     FOREIGN KEY (paciente_id) REFERENCES Paciente(id),
     FOREIGN KEY (medico_id) REFERENCES Medico(id)
 );
+INSERT INTO Especialidad (nombre) VALUES ('Cardiología');
+INSERT INTO Especialidad (nombre) VALUES ('Pediatría');
+INSERT INTO Especialidad (nombre) VALUES ('Dermatología');

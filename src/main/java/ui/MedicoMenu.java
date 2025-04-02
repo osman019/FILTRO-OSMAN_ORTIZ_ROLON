@@ -21,7 +21,7 @@ public class MedicoMenu {
         while (continuar) {
             System.out.println("===================================");
             System.out.println("Bienvenido al sistema de médicos");
-            System.out.println("1. Crear médico");
+            System.out.println("1. Registrar médico");
             System.out.println("2. Obtener médico por ID");
             System.out.println("3. Actualizar médico");
             System.out.println("4. Eliminar médico");
@@ -55,7 +55,7 @@ public class MedicoMenu {
     }
 
     private void crearMedico(Scanner scanner) {
-        scanner.nextLine();  // Consumir salto de línea residual
+        scanner.nextLine(); 
 
         System.out.print("Ingrese el nombre del médico: ");
         String nombre = scanner.nextLine();
@@ -95,7 +95,7 @@ public class MedicoMenu {
     private void actualizarMedico(Scanner scanner) {
         System.out.print("Ingrese el ID del médico a actualizar: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumir salto de línea residual
+        scanner.nextLine(); 
 
         System.out.print("Ingrese el nuevo nombre del médico: ");
         String nombre = scanner.nextLine();
